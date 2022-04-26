@@ -7,4 +7,4 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 #test the config
 RUN nginx -t
-RUN nginx -g "daemon off;"
+CMD nginx

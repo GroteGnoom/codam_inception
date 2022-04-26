@@ -2,3 +2,9 @@ services:
   nginx:
     container_name: nginx
     build: nginx/
+  wordpress:
+    container_name: wordpress
+    build: wordpress/
+  mariadb:
+    container_name: mariadb
+    build: mariadb/
