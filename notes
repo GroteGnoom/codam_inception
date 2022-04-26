@@ -1,0 +1,30 @@
+todo:
+	wordpress + php-fpm
+
+done:
+	
+	install ssh
+	port forwarding, my 8000 is going to 22
+	install curl
+	install a few docker dependencies
+	apt update, apt upgrade
+	install engine :https://docs.docker.com/engine/install/ubuntu
+	doesn't seem to work: install docker desktop https://docs.docker.com/desktop/linux/
+	sudo docker run hello-world // works
+	https://www.tecmint.com/install-virtualbox-guest-additions-in-ubuntu/
+	use shared folder
+	sudo apt install docker-compose
+	https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
+	
+	
+
+osboxes osboxes.org
+ssh -p 8000 osboxes@127.0.0.1
+
+cat /etc/fstab //to check some mounting
+df -lh //disks
+
+sudo mount -t vboxsf inception /inception
+/sbin/mount.vboxsf: mounting failed with the error: Invalid argument
+error fixed by
+sudo apt-get install virtualbox-guest-utils
