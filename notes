@@ -38,3 +38,6 @@ CONTAINER ID   IMAGE            COMMAND                  CREATED        STATUS  
 and then I can do
 docker run -it --entrypoint bash srcs_wordpress
 to get a shell in there
+
+
+https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy

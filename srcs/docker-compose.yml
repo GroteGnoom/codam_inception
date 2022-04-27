@@ -24,3 +24,7 @@ services:
       - "/db"
     networks:
       - wordpressmariadb
+
+networks:
+  nginxwordpress:
+  wordpressmariadb:
