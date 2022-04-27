@@ -8,8 +8,8 @@ services:
     build: wordpress/
     restart: always
     volumes:
-      - "~/wpdb"
-      - "~/wpweb"
+      - "/wpdb"
+      - "/wpweb"
   mariadb:
     container_name: mariadb
     build: mariadb/
