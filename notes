@@ -28,3 +28,13 @@ sudo mount -t vboxsf inception /inception
 /sbin/mount.vboxsf: mounting failed with the error: Invalid argument
 error fixed by
 sudo apt-get install virtualbox-guest-utils
+
+show all containers:
+docker container ls -a
+which outputs something like
+CONTAINER ID   IMAGE            COMMAND                  CREATED        STATUS                      PORTS     NAMES
+46ecc02c5461   srcs_wordpress   "bash"                   18 hours ago   Exited (0) 18 hours ago               46ecc02c5461_wordpress
+
+and then I can do
+docker run -it --entrypoint bash srcs_wordpress
+to get a shell in there

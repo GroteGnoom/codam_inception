@@ -2,11 +2,15 @@ services:
   nginx:
     container_name: nginx
     build: nginx/
+    restart: always
   wordpress:
     container_name: wordpress
     build: wordpress/
+    restart: always
     volumes:
       - "~/wpdb"
+      - "~/wpweb"
   mariadb:
     container_name: mariadb
     build: mariadb/
+    restart: always
