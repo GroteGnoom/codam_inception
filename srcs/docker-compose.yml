@@ -3,14 +3,24 @@ services:
     container_name: nginx
     build: nginx/
     restart: always
+    volumes:
+      - "/wp"
+    networks:
+      - nginxwordpress
   wordpress:
     container_name: wordpress
     build: wordpress/
     restart: always
     volumes:
-      - "/wpdb"
-      - "/wpweb"
+      - "/wp"
+    networks:
+      - nginxwordpress
+      - wordpressmariadb
   mariadb:
     container_name: mariadb
     build: mariadb/
     restart: always
+    volumes:
+      - "/db"
+    networks:
+      - wordpressmariadb
