@@ -27,7 +27,28 @@ done:
 		https://wiki.archlinux.org/title/installation_guide
 		I do not have UEFI, probably because of virtualbox
 		network connection is already there, I can ping
-		fixed my timezone
+		fixed my timezone https://www.tecmint.com/set-time-timezone-and-synchronize-time-using-timedatectl-command/
+		only root partion is required for non-uefi
+		let's try without swap space for now.
+		https://www.thegeekdiary.com/how-to-create-a-partition-using-parted-command/	
+		msdos and gpt seem fine for my purposes: https://unix.stackexchange.com/questions/289389/what-are-the-differences-between-the-various-partition-tables
+https://www.tecmint.com/create-new-ext4-file-system-partition-in-linux/
+		i've done a pacstrap without firmware, because I'm in a virtual machine
+		I'm not sure the system will be able to deal with the growing harddisk
+		After the base, I also use packstrap for iprout2 and vim. Don't know if i need filesystem management
+		packman -S grub in the chroot
+		https://wiki.archlinux.org/title/GRUB#Installation_2
+		now I have a problem, because the msdos style label has no post-mbr gap, and it doesn't like blocklists
+
+		ran reflector to update mirror list
+	start over:
+		enable efi in virtual machine
+		install ssh: pacman -Sy openssh
+		changed the root password to root
+		maybe not necessary //edited sshconfig: https://superuser.com/questions/337694/openssh-server-how-to-configure-keyboard-interactive-authentication
+		just remove the old thing //edited strict host key checking https://askubuntu.com/questions/87449/how-to-disable-strict-host-key-checking-in-ssh
+		scp -P 8000 arch_install_script root@127.0.0.1
+		now I can't boot if I have EFI, but only without it?
 		
 	
 	
@@ -58,3 +79,17 @@ https://www.digitalocean.com/community/tutorials/docker-explained-how-to-contain
 
 curl 127.0.0.1:443
 curl: (52) Empty reply from server
+
+volumes: seem to go in fixed folder like /var/docker/volumes or something
+
+
+hostfolder:guestfolder
+https://earthly.dev/blog/docker-volumes/ 
+
+
+lighttpd wordt in borntoberoot gebruikt voor wordpress server
+
+php-fpm is de server!
+
+
+noapic and split_lock_detect=off don't seem to fix my problems 
