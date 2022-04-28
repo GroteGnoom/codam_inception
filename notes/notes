@@ -1,5 +1,6 @@
 todo:
-	wordpress + php-fpm
+	let nginx show wordpress site
+	- it now shows empty site
 
 done:
 	
@@ -15,6 +16,19 @@ done:
 	use shared folder
 	sudo apt install docker-compose
 	https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
+	start over:
+		download debian iso: https://www.debian.org/CD/netinst/
+		make new virtual machine, use iso
+		install, not graphical, but then later you also need to say to not install a desktop and gnome
+	start over with arch:
+		download iso directly https://archlinux.org/download/
+		- actually check the shasum
+		use the iso, no more options before it's installed
+		https://wiki.archlinux.org/title/installation_guide
+		I do not have UEFI, probably because of virtualbox
+		network connection is already there, I can ping
+		fixed my timezone
+		
 	
 	
 
@@ -41,3 +55,6 @@ to get a shell in there
 
 
 https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy
+
+curl 127.0.0.1:443
+curl: (52) Empty reply from server

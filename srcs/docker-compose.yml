@@ -7,6 +7,8 @@ services:
       - "/wp"
     networks:
       - nginxwordpress
+    ports:
+      - "443:443"
   wordpress:
     container_name: wordpress
     build: wordpress/
