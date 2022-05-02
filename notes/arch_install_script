@@ -1,16 +1,23 @@
+set -e
+set -x
 timedatectl set-ntp true
-parted /dev/sda --script mklabel gpt
+#parted /dev/sda --script mklabel gpt
+parted /dev/sda --script mklabel msdos
 echo "ignore the next warning about a partition not being properly aligned"
-parted /dev/sda --script mkpart primary fat32 1MiB 300MB
-parted /dev/sda --script set 1 esp on
-parted /dev/sda --script mkpart primary ext4 300MB 30GB
-mkfs.fat -F32 /dev/sda1
-mkfs.ext4 /dev/sda2
-mount /dev/sda2 /mnt
-mount --mkdir /dev/sda1 /mnt/boot
+#parted /dev/sda --script mkpart primary fat32 1MiB 300MB
+#parted /dev/sda --script set 1 esp on
+#parted /dev/sda --script mkpart primary ext4 300MB 30GB
+parted /dev/sda --script mkpart primary ext4 1MB 99%
+#mkfs.fat -F32 /dev/sda1
+#mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda1
+#mount /dev/sda2 /mnt
+mount /dev/sda1 /mnt
+#mount --mkdir /dev/sda1 /mnt/boot
 reflector
 pacstrap /mnt base linux vim
 genfstab -U /mnt >> /mnt/etc/fstab
 cp chrootscript /mnt/root
+chmod +x /mnt/root/rootscript
 arch-chroot /mnt /root/chrootscript
 umount -R /mnt

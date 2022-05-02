@@ -1,0 +1,31 @@
+
+vim /etc/systemd/network/20-wired.network
+-------
+[Match]
+Name=enp0s3
+
+[Network]
+DHCP=yes
+--------
+systemctl enable systemd-networkd
+systemctl enable systemd-resolved
+
+
+---------------------
+adduser inception
+passwd inception
+pacman -Sy sudo
+groupadd sudo
+upsermod -g sudo inception
+export EDITOR=vim
+visudo -> add sudo
+pacman -Sy openssh
+systemctl enable sshd
+systemctl start sshd
+pacman -Sy fish
+chsh
+pacman -Sy virtualbox-guest-utils-nox
+modprobe -a vboxguest vboxsf vboxvideo
+enable vboxservice.service
+pacman -Sy make docker docker-compose
+systemctl start docker

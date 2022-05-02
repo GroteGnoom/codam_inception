@@ -47,8 +47,14 @@ https://www.tecmint.com/create-new-ext4-file-system-partition-in-linux/
 		changed the root password to root
 		maybe not necessary //edited sshconfig: https://superuser.com/questions/337694/openssh-server-how-to-configure-keyboard-interactive-authentication
 		just remove the old thing //edited strict host key checking https://askubuntu.com/questions/87449/how-to-disable-strict-host-key-checking-in-ssh
-		scp -P 8000 arch_install_script root@127.0.0.1
+		scp -P 8000 arch_install_script root@127.0.0.1:/root
 		now I can't boot if I have EFI, but only without it?
+	start over:
+		no efi
+		before installing openssh: reflector? other things? I get keyring problems if it's the first thing I do. Maybe it's the time and date settings!
+		ssh, port forwarding, password, remove ssh known_host
+	I should have used: https://wiki.archlinux.org/title/VirtualBox/Install_Arch_Linux_as_a_gues://wiki.archlinux.org/title/VirtualBox/Install_Arch_Linux_as_a_guest
+
 		
 	
 	
@@ -93,3 +99,14 @@ php-fpm is de server!
 
 
 noapic and split_lock_detect=off don't seem to fix my problems 
+
+https://unix.stackexchange.com/questions/200582/scripteable-gpt-partitions-using-parted
+
+https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html
+
+keyring problems
+https://bbs.archlinux.org/viewtopic.php?id=198132
+https://bbs.archlinux.org/viewtopic.php?id=187746
+https://archived.forum.manjaro.org/t/solved-corrupted-gpg-conf-empty-keyring/34434
+https://bbs.archlinux.org/viewtopic.php?id=201895
+
