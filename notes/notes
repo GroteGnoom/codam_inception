@@ -110,3 +110,25 @@ https://bbs.archlinux.org/viewtopic.php?id=187746
 https://archived.forum.manjaro.org/t/solved-corrupted-gpg-conf-empty-keyring/34434
 https://bbs.archlinux.org/viewtopic.php?id=201895
 
+to check if config is parsed:
+docker-compose -f srcs/docker-compose.yml config
+
+https://codewithyury.com/docker-run-vs-cmd-vs-entrypoint/
+"CMD instruction allows you to set a default command, which will be executed only when you run container without specifying a command."
+So I never want that?
+
+RUN is to build the stuff. You can have lots of RUNs
+
+if you do
+RUN apt-get update
+and then
+RUN apt-get install bla
+then update goes in one layer, install goes in another, so maybe the install is way later than the update
+
+with ENTRYPOINT (or CMD?) I can do
+docker run --env-file=srcs/.env -it srcs_mariadb
+instead of
+docker run --env-file=srcs/.env -it --entrypoint bash srcs_mariadb
+
+mysql error logs are in /var/log/mysql/error.log
+
