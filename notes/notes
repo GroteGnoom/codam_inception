@@ -1,6 +1,9 @@
 todo:
 	let nginx show wordpress site
-	- it now shows empty site
+	- it now shows nginx default
+	from nginx /var/log/nginx/error.log:
+	2022/05/03 09:09:04 [error] 7#7: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "127.0.0.1"
+	from /var/log/php7.3-fpm.log it seems to be runing
 	all TODOs
 
 done:
