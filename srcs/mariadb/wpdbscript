@@ -1,0 +1,23 @@
+#!/bin/sh
+set -x
+
+#echo $WP_USER_PASSWORD > /tmp/pwtest
+#env > /tmp/envtest
+#date >> /tmp/envtest
+
+mysql_install_db
+
+service mysql stop
+mkdir -p /run/mysqld
+chown -R mysql:root /run/mysqld
+
+mysqld < /tmp/wpdbscript.sql
+#cat /var/log/mysql/error.log
+
+#service mysql restart
+
+#env
+#bash
+
+#cat /var/log/mysql/error.log
+

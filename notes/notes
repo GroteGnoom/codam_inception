@@ -132,3 +132,4 @@ docker run --env-file=srcs/.env -it --entrypoint bash srcs_mariadb
 
 mysql error logs are in /var/log/mysql/error.log
 
+
