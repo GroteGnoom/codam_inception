@@ -1,6 +1,7 @@
 todo:
 	let nginx show wordpress site
 	- it now shows empty site
+	all TODOs
 
 done:
 	
@@ -132,4 +133,9 @@ docker run --env-file=srcs/.env -it --entrypoint bash srcs_mariadb
 
 mysql error logs are in /var/log/mysql/error.log
 
+To curl nginx, make sure to use https
+curl https://127.0.0.1:443
+
+now we're working with running containers, use things like
+docker exec -it e7b1e1bced99 bash
 
