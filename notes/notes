@@ -1,6 +1,7 @@
 todo:
 	let nginx show wordpress site
-	- let wordpress connect to database
+	fiddle around with wordpress config until it shown something
+	connect to nginx with browser
 	all TODOs
 
 done:
