@@ -163,3 +163,8 @@ curl: (52) Empty reply from server
 in the wordpress container:
 root@64722449045c:/# curl http://127.0.0.1:9000
 curl: (56) Recv failure: Connection reset by peer
+
+that's not supposed to work. You need to do a fastcgi request.
+https://easyengine.io/tutorials/php/directly-connect-php-fpm/
+First set a status path in www.conf
+then 
