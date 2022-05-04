@@ -142,3 +142,6 @@ curl https://127.0.0.1:443
 now we're working with running containers, use things like
 docker exec -it e7b1e1bced99 bash
 
+
+https://www.ssh.com/academy/ssh/copy-id
+ssh-copy-id -i ~/.ssh/id_rsa.pub -p 8000 root@127.0.0.1

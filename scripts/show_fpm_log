@@ -1,0 +1,2 @@
+#!/usr/bin/fish
+docker exec (./get_container_id wordpress) cat /var/log/php7.3-fpm.log
