@@ -145,3 +145,21 @@ docker exec -it e7b1e1bced99 bash
 
 https://www.ssh.com/academy/ssh/copy-id
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p 8000 root@127.0.0.1
+
+https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
+I can see php-fpm listening on port 9000
+root@64722449045c:/var/log/apache2# lsof -i -P -n
+COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+php-fpm7.   1 root    7u  IPv4  28789      0t0  TCP *:9000 (LISTEN)
+
+and I see docker listening to it:
+docker-pr 4937            root    4u  IPv4  28440      0t0  TCP *:9000 (LISTEN)
+docker-pr 4942            root    4u  IPv6  28445      0t0  TCP *:9000 (LISTEN)
+
+But I dont get an answer from the port
+root@inception /m/scripts [7]# curl http://127.0.0.1:9000
+curl: (52) Empty reply from server
+
+in the wordpress container:
+root@64722449045c:/# curl http://127.0.0.1:9000
+curl: (56) Recv failure: Connection reset by peer

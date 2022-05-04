@@ -1,0 +1,5 @@
+#!/usr/bin/fish
+echo access logs:
+docker exec (./get_container_id nginx) cat /var/log/nginx/access.log
+echo error logs:
+docker exec (./get_container_id nginx) cat /var/log/nginx/error.log
