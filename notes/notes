@@ -1,9 +1,6 @@
 todo:
 	let nginx show wordpress site
-	- it now shows nginx default
-	from nginx /var/log/nginx/error.log:
-	2022/05/03 09:09:04 [error] 7#7: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "127.0.0.1"
-	from /var/log/php7.3-fpm.log it seems to be runing
+	- let wordpress connect to database
 	all TODOs
 
 done:
@@ -171,4 +168,6 @@ then use the script:)
 on arch the package name is fcgi
 ok, this works in the wordpress container, it works outside of the container, does it work in the nginx containter? no. I fixed it, needed to do wordpress:9000, not 127.0.0.1:9000. It seems like for the fhost it is local (because of ports: ?) but for nginx it isn't local, its wordpress.
 
+Neither <b>/etc/wordpress/config-127.0.0.1.php</b> nor <b>/etc/wordpress/config-0.0.1.php</b> could be found. <br/> Ensure one of them exists, is readable by the webserver and contains the right password/username. 
 
+ 
