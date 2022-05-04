@@ -167,4 +167,8 @@ curl: (56) Recv failure: Connection reset by peer
 that's not supposed to work. You need to do a fastcgi request.
 https://easyengine.io/tutorials/php/directly-connect-php-fpm/
 First set a status path in www.conf
-then 
+then use the script:)
+on arch the package name is fcgi
+ok, this works in the wordpress container, it works outside of the container, does it work in the nginx containter? no. I fixed it, needed to do wordpress:9000, not 127.0.0.1:9000. It seems like for the fhost it is local (because of ports: ?) but for nginx it isn't local, its wordpress.
+
+
