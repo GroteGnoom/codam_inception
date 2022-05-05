@@ -1,8 +1,10 @@
 <?php
 
 define( 'DB_NAME', 'WP' );
-define( 'DB_USER', 'justauser' );
-define( 'DB_PASSWORD', 'userpw' ); /*TODO take from envirnonment*/
+/*define( 'DB_USER', 'justauser' );*/
+/*define( 'DB_PASSWORD', 'userpw' );*/ /*TODO take from envirnonment*/
+define( 'DB_USER', 'boss' );
+define( 'DB_PASSWORD', 'bosspw' ); /*TODO take from envirnonment*/
 define( 'DB_HOST', 'mariadb' );
 define( 'WP_DEBUG', true); /*TODO remove */
 define( 'WP_DEBUG_LOG', true ); /*TODO remove */

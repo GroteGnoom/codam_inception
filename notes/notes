@@ -192,3 +192,19 @@ select * from mysql.user;
 shows me not host which accepts form * or 0.0.0.0. This is a problem. it only accepts from localhost, not external
 
 select host,user from mysql.user;
+
+apt-get install default-mysql-client
+apt-get install mariadb-client
+
+docker inspect mariadb 
+docker network inspect srcs_wordpressmariadb
+
+do not test networking stuff on stopped containers it doesn't make sense. docker-compose takes care of the network.
+
+this just works in wordpress
+mariadb -hmariadb -P3306 -uboss -pbosspw
+
+yes they're necessary:
+wordpress  | Error: Parameter errors:
+wordpress  |  missing --title parameter (The title of the new site.)
+wordpress  |  missing --admin_email parameter (The email address for the admin user.)

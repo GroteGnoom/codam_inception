@@ -4,8 +4,9 @@ FROM debian:buster
 #curl and lsof are for debugging
 #libfcgi0ldbl to check if php-fpm is running
 #vim to edit wp config
-#everybody thinks you should not use apt io install wordpress
-RUN apt-get update && apt-get -y install php-fpm php-mysql curl lsof libfcgi0ldbl vim wget
+#everybody thinks you should not use apt to install wordpress
+#mariadb to check if it can connect
+RUN apt-get update && apt-get -y install php-fpm php-mysql curl lsof libfcgi0ldbl vim wget mariadb-client
 # to prevent ERROR: unable to bind listening socket for address '/run/php/php7.3-fpm.sock': No such file or directory (2)
 #config is necessary to let it listen to the right port
 COPY www.conf /etc/php/7.3/fpm/pool.d

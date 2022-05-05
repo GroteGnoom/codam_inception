@@ -6,5 +6,6 @@ CREATE USER 'justauser' IDENTIFIED BY 'userpw';
 --TODO use environment
 CREATE USER 'boss'@'%' IDENTIFIED BY 'bosspw';
 --https://stackoverflow.com/questions/1559955/host-xxx-xx-xxx-xxx-is-not-allowed-to-connect-to-this-mysql-server
+GRANT ALL PRIVILEGES ON *.* TO 'justauser'@'%' WITH GRANT OPTION; --probably don't want to give this one all privileges
 GRANT ALL PRIVILEGES ON *.* TO 'boss'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
