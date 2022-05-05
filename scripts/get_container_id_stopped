@@ -1,0 +1,2 @@
+#!/usr/bin/fish
+docker ps -a | grep $argv[1] | awk '{print $1}'

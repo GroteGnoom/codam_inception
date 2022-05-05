@@ -12,6 +12,8 @@ services:
     depends_on:
       - "wordpress"
   wordpress:
+    env_file:
+      - .env
     container_name: wordpress
     build: wordpress/
       #restart: always TODO

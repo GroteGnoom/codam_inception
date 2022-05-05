@@ -1,0 +1,2 @@
+#!/usr/bin/fish
+docker run -it --entrypoint bash srcs_$argv[1]

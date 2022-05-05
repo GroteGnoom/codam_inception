@@ -1,7 +1,13 @@
+startup:
+	start // to start vm
+	mount_shared
+	do_make
+
+
 todo:
 	let nginx show wordpress site
-	fiddle around with wordpress config until it shown something
-	connect to nginx with browser
+	fiddle around with wordpress config until it shows something
+	let wordpress connect to db, I can already connect from host
 	all TODOs
 
 done:
@@ -172,3 +178,17 @@ ok, this works in the wordpress container, it works outside of the container, do
 Neither <b>/etc/wordpress/config-127.0.0.1.php</b> nor <b>/etc/wordpress/config-0.0.1.php</b> could be found. <br/> Ensure one of them exists, is readable by the webserver and contains the right password/username. 
 
  
+connect to nginx with browser
+my virtualbox now forwards 8001 to 443
+so if I go to https://127.0.0.1:8001/ in firefox, I see the empty nginx response I expect
+
+https://127.0.0.1:8000/wp-admin
+Beveiligde verbinding mislukt
+http://127.0.0.1:8000/wp-admin/
+SSH-2.0-OpenSSH_9.0
+Invalid SSH identification string.
+
+select * from mysql.user;
+shows me not host which accepts form * or 0.0.0.0. This is a problem. it only accepts from localhost, not external
+
+select host,user from mysql.user;
