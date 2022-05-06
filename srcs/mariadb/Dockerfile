@@ -6,7 +6,6 @@ RUN apt-get update && apt-get -y install mariadb-server vim
 #ARG CACHE_BREAK=bli
 #ARG test=$WP_USER_PASSWORD
 #ENV banaan $WP_USER_PASSWORD
-COPY wpdbscript.sql /tmp/
 COPY wpdbscript /tmp/
 COPY 50-server.cnf /etc/mysql/mariadb.conf.d
 #RUN echo $WP_USER_PASSWORD > /tmp/pwtest1

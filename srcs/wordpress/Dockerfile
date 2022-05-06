@@ -22,7 +22,6 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 RUN mkdir -p /var/www/html
 #wp core download doesn't seem to just download. it also sets some config which makes the current folder the wordpress root folder. Very confusing :(
 RUN cd /var/www/html && wp core download --allow-root;
-COPY wp-config.php /tmp/
 #RUN wp core install --allow-root --url=${WP_URL} --title=${WP_TITLE} --admin_user=${WP_ADMIN_LOGIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
 #RUN wp user create --allow-root ${WP_USER_LOGIN} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD};
 #
