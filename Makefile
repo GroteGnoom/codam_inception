@@ -12,5 +12,9 @@ stop:
 kill:
 	docker-compose -f srcs/docker-compose.yml kill
 
+rmv:
+	rm -rf ~/data/db
+	rm -rf ~/data/wp
+
 re: kill all
 

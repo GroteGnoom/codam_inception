@@ -217,7 +217,59 @@ curl -ki https://127.0.0.1/wp-admin/
 
 and that moves to:
 
-https://dnoom.42.fr/wp-admin/upgrade.php?_wp_http_referer=%2Fwp-admin%2F
+curl -ki 'https://dnoom.42.fr/wp-admin/upgrade.php?_wp_http_referer=%2Fwp-admin%2F'
 
 this actually shows wordpress:
 curl -ki 'https://127.0.0.1/wp-admin/upgrade.php?_wp_http_referer=%2Fwp-admin%2F'
+
+This just works, 
+curl -kiL https://127.0.0.1/wp-admin
+
+and this works in firefox, but firefox can't know what dnoom.42.fr means :(
+https://127.0.0.1:8001/wp-admin/upgrade.php?_wp_http_referer=%2Fwp-admin%2F
+
+
+installing firefox on arch :
+
+https://www.linuxfordevices.com/tutorials/linux/how-to-install-gui-on-arch-linux#1-Installing-Graphics-Driver
+//pacman -S virtualbox-guest-utils virtualbox-guest-dkms
+//virtualbox-guest-dkms does not exist
+pacman -S xorg xterm xorg-xinit
+//next time:
+pacman -S xorg-server xorg-xinit
+
+startx
+//startx hangs
+https://cyruslab.net/2012/02/06/arch-linux-video-driver-virtualbox/
+
+//don't know what this is :
+pacman -S dkms
+//i had the nox guest utils, they need to be replaced
+pacman -S virtualbox-guest-utils
+//I rebooted, it didn't start up, rebooted again and it worked
+startx usually starts up three terminals,
+in /etx/X11/xinit/initrc at the end you can remove all the twm, xclock, and xterm stuff and just add firefox
+the geometry is wrong then
+http://kb.mozillazine.org/Command_line_arguments
+exec firefox -width 800 -height 600
+
+to reset some stuff:
+docker system prune -a
+
+if I replace index.php by
+ <?php echo '<p>Hello World</p>'; ?> 
+
+then I can see hello world on dnoom.42.fr
+
+
+/var/www/html is in a volume, so edits are permanent
+
+after deleting volumes I need to run the mysql script manually?
+
+then I get 
+wordpress  | Error: This does not seem to be a WordPress installation.
+wordpress  | Pass --path=`path/to/wordpress` or run `wp core download`.
+wordpress  | + wp user create justauser pleasedonotemailme2@hopefullydoesnotexist.example.com --allow-root --user_pass=userpw
+wordpress  | Error: This does not seem to be a WordPress installation.
+wordpress  | Pass --path=`path/to/wordpress` or run `wp core download`.
+

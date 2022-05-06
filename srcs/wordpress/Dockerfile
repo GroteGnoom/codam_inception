@@ -41,4 +41,6 @@ COPY wp-config.php /tmp/
 
 #ENTRYPOINT ["/usr/sbin/php-fpm7.3", "--nodaemonize"]
 COPY wp.sh /tmp/
+
+
 ENTRYPOINT /tmp/wp.sh

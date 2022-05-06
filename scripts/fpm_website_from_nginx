@@ -1,0 +1,3 @@
+#!/usr/bin/fish
+docker exec (./get_container_id nginx) bash -c 'SCRIPT_NAME=/wp-admin/index.php SCRIPT_FILENAME=/wp-admin/index.php DOCUMENT_ROOT=/var/www/html/ REQUEST_METHOD=GET cgi-fcgi -bind -connect wordpress:9000'
+
