@@ -1,5 +1,7 @@
 #!/bin/bash
 set -x
+chown -R www-data:www-data /var/www
+chmod -R 755 /var/www/
 mkdir -p /var/www/html
 cp /tmp/wp-config.php /var/www/html/
 cd /var/www/html/

@@ -2,7 +2,7 @@
 CREATE DATABASE IF NOT EXISTS WP;
 --DROP USER IF EXISTS 'justauser'
 --TODO use environment
-CREATE USER 'justauser' IDENTIFIED BY 'userpw';
+CREATE USER 'justauser'@'%' IDENTIFIED BY 'userpw';
 --TODO use environment
 CREATE USER 'boss'@'%' IDENTIFIED BY 'bosspw';
 --https://stackoverflow.com/questions/1559955/host-xxx-xx-xxx-xxx-is-not-allowed-to-connect-to-this-mysql-server

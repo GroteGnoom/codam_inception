@@ -4,7 +4,7 @@ services:
     build: nginx/
       #restart: always TODO
     volumes:
-      - "~/data/wp:/usr/share/wordpress"
+      - "~/data/wp:/var/www/html"
     networks:
       - nginxwordpress
     ports:
@@ -18,7 +18,7 @@ services:
     build: wordpress/
       #restart: always TODO
     volumes:
-      - "~/data/wp:/usr/share/wordpress"
+      - "~/data/wp:/var/www/html"
     networks:
       - nginxwordpress
       - wordpressmariadb

@@ -9,6 +9,9 @@ define( 'DB_HOST', 'mariadb' );
 define( 'WP_DEBUG', true); /*TODO remove */
 define( 'WP_DEBUG_LOG', true ); /*TODO remove */
 
+define( 'DB_CHARSET', 'utf8' );
+define( 'DB_COLLATE', '' );
+
 define( 'AUTH_KEY',         'a' );
 define( 'SECURE_AUTH_KEY',  'b' );
 define( 'LOGGED_IN_KEY',    'c' );

@@ -208,3 +208,16 @@ yes they're necessary:
 wordpress  | Error: Parameter errors:
 wordpress  |  missing --title parameter (The title of the new site.)
 wordpress  |  missing --admin_email parameter (The email address for the admin user.)
+
+This gives me a moved permanently:
+curl -ki https://127.0.0.1/wp-admin
+
+and it moves to:
+curl -ki https://127.0.0.1/wp-admin/
+
+and that moves to:
+
+https://dnoom.42.fr/wp-admin/upgrade.php?_wp_http_referer=%2Fwp-admin%2F
+
+this actually shows wordpress:
+curl -ki 'https://127.0.0.1/wp-admin/upgrade.php?_wp_http_referer=%2Fwp-admin%2F'
