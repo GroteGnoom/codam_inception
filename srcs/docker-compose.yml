@@ -2,7 +2,7 @@ services:
   nginx:
     container_name: nginx
     build: nginx/
-      #restart: always TODO
+    restart: always
     volumes:
       - "~/data/wp:/var/www/html"
     networks:
@@ -16,7 +16,7 @@ services:
       - .env
     container_name: wordpress
     build: wordpress/
-      #restart: always TODO
+    restart: always
     volumes:
       - "~/data/wp:/var/www/html"
     networks:
@@ -31,7 +31,7 @@ services:
       - .env
     container_name: mariadb
     build: mariadb/
-      #restart: always TODO
+    restart: always
     volumes:
       - "~/data/db:/var/lib/mysql"
     networks:

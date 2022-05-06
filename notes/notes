@@ -5,10 +5,13 @@ startup:
 
 
 todo:
-	let nginx show wordpress site
-	fiddle around with wordpress config until it shows something
-	let wordpress connect to db, I can already connect from host
 	all TODOs
+	directory structure
+	remove errors when running second time. Check if users already exist, etc.
+
+lessons:
+	don't think all your state is in your scripts if you're using volumes. Maybe don't use volumes at all until the end.
+	don't test networks if your containers aren't all running via docker-compose
 
 done:
 	
