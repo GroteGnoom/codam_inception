@@ -1,0 +1,4 @@
+./start
+sleep 30
+./mount_shared
+./do_make
