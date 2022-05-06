@@ -16,5 +16,7 @@ rmv:
 	rm -rf ~/data/db
 	rm -rf ~/data/wp
 
+renovolume: kill rmv all
+
 re: kill all
 
