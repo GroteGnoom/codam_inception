@@ -19,8 +19,10 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 RUN mkdir -p /var/www/html
-#wp core download doesn't seem to just download. it also sets some config which makes the current folder the wordpress root folder. Very confusing :(
-RUN cd /var/www/html && wp core download --allow-root;
+RUN chown -R www-data:www-data /var/www
+RUN chmod -R 755 /var/www/
+RUN mkdir -p /var/www/html
 
 COPY wp.sh /tmp/
+#Rest needs to be done in a script, because it requires the mariadb container to run
 ENTRYPOINT /tmp/wp.sh
