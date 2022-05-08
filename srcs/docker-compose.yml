@@ -1,6 +1,5 @@
 services:
   nginx:
-    container_name: nginx
     build: nginx/
     restart: always
     volumes:
@@ -14,7 +13,6 @@ services:
   wordpress:
     env_file:
       - .env
-    container_name: wordpress
     build: wordpress/
     restart: always
     volumes:
@@ -22,22 +20,21 @@ services:
     networks:
       - nginxwordpress
       - wordpressmariadb
-    ports:
-      - "9000:9000"
+        #ports:
+        #- "9000:9000"
     depends_on:
       - "mariadb"
   mariadb:
     env_file:
       - .env
-    container_name: mariadb
     build: mariadb/
     restart: always
     volumes:
       - "~/data/db:/var/lib/mysql"
     networks:
       - wordpressmariadb
-    ports:
-      - "3306:3306"
+        #ports:
+        #- "3306:3306"
 networks:
   nginxwordpress:
   wordpressmariadb:
