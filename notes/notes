@@ -1,7 +1,6 @@
 startup:
-	start // to start vm
-	mount_shared
-	do_make
+	start_everything
+	use startx in VM to start firefox
 
 
 todo:

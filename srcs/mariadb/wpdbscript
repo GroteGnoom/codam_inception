@@ -16,9 +16,9 @@ cat << END > /tmp/wpdbscript.sql
 CREATE DATABASE IF NOT EXISTS WP;
 --DROP USER IF EXISTS 'justauser'
 --TODO use environment
-CREATE USER 'justauser'@'%' IDENTIFIED BY '$WP_USER_PASSWORD';
+CREATE USER IF NOT EXISTS 'justauser'@'%' IDENTIFIED BY '$WP_USER_PASSWORD';
 --TODO use environment
-CREATE USER 'boss'@'%' IDENTIFIED BY '$WP_BOSS_PASSWORD';
+CREATE USER IF NOT EXISTS 'boss'@'%' IDENTIFIED BY '$WP_BOSS_PASSWORD';
 --https://stackoverflow.com/questions/1559955/host-xxx-xx-xxx-xxx-is-not-allowed-to-connect-to-this-mysql-server
 GRANT ALL PRIVILEGES ON *.* TO 'justauser'@'%' WITH GRANT OPTION; --probably don't want to give this one all privileges
 GRANT ALL PRIVILEGES ON *.* TO 'boss'@'%' WITH GRANT OPTION;
