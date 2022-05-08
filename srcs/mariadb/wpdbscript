@@ -1,10 +1,6 @@
 #!/bin/sh
 set -x
 
-#echo $WP_USER_PASSWORD > /tmp/pwtest
-#env > /tmp/envtest
-#date >> /tmp/envtest
-
 mysql_install_db
 
 service mysql stop
@@ -30,12 +26,3 @@ cat /tmp/wpdbscript.sql
 service mysql start && mysql < /tmp/wpdbscript.sql
 service mysql stop
 mysqld
-#cat /var/log/mysql/error.log
-
-#service mysql restart
-
-#env
-#bash
-
-#cat /var/log/mysql/error.log
-

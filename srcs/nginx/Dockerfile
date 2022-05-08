@@ -1,6 +1,5 @@
 FROM debian:buster
 
-#comment!
 RUN apt-get update && apt-get -y install nginx openssl
 #https://easyengine.io/tutorials/php/directly-connect-php-fpm/
 RUN apt-get -y install libfcgi0ldbl

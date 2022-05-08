@@ -1,6 +1,5 @@
 FROM debian:buster
 
-#comment!
 #curl and lsof are for debugging
 #libfcgi0ldbl to check if php-fpm is running
 #vim to edit wp config
@@ -22,24 +21,6 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 RUN mkdir -p /var/www/html
 #wp core download doesn't seem to just download. it also sets some config which makes the current folder the wordpress root folder. Very confusing :(
 RUN cd /var/www/html && wp core download --allow-root;
-#RUN wp core install --allow-root --url=${WP_URL} --title=${WP_TITLE} --admin_user=${WP_ADMIN_LOGIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
-#RUN wp user create --allow-root ${WP_USER_LOGIN} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD};
-#
 
-
-#https://www.inmotionhosting.com/support/edu/wordpress/install-wordpress-debian-10/
-#I thought that was everything, but it ends with '.....and now you need to go through the wordpress install process..... so that's why you need wp-cli
-#RUN wget http://wordpress.org/latest.tar.gz
-#RUN tar xfz latest.tar.gz
-#RUN mkdir -p /var/www/html/
-#RUN mv wordpress/* /var/www/html/
-#RUN rm latest.tar.gz
-#
-#COPY wp_conf.php /var/www/wp-config.php
-
-
-#ENTRYPOINT ["/usr/sbin/php-fpm7.3", "--nodaemonize"]
 COPY wp.sh /tmp/
-
-
 ENTRYPOINT /tmp/wp.sh
