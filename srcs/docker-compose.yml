@@ -1,6 +1,6 @@
 services:
   nginx:
-    build: nginx/
+    build: requirements/nginx/
     restart: always
     volumes:
       - "~/data/wp:/var/www/html"
@@ -13,7 +13,7 @@ services:
   wordpress:
     env_file:
       - .env
-    build: wordpress/
+    build: requirements/wordpress/
     restart: always
     volumes:
       - "~/data/wp:/var/www/html"
@@ -27,7 +27,7 @@ services:
   mariadb:
     env_file:
       - .env
-    build: mariadb/
+    build: requirements/mariadb/
     restart: always
     volumes:
       - "~/data/db:/var/lib/mysql"

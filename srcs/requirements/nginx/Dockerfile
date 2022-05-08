@@ -4,7 +4,7 @@ RUN apt-get update && apt-get -y install nginx openssl
 #https://easyengine.io/tutorials/php/directly-connect-php-fpm/
 RUN apt-get -y install libfcgi0ldbl
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
 
 #https://stackoverflow.com/questions/10175812/how-to-generate-a-self-signed-ssl-certificate-using-openssl
 #https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04
