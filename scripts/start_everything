@@ -1,4 +1,5 @@
+set -x
 ./start
-sleep 30
+while ! ssh -p 8000 root@127.0.0.1 echo; do sleep 1; done
 ./mount_shared
 ./do_make
