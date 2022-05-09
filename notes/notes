@@ -10,6 +10,8 @@ todo:
 	srcs-mariadb-1    | Stopping MariaDB database server: mysqldERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
 	more env!
 	why does it hang after stopping?
+	people have seen similar problems, especially on arch, but they should be fixed, I have a newer version
+	https://github.com/docker/compose/issues/8523
 
 to understand:
 	fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
@@ -281,4 +283,42 @@ wordpress  | Pass --path=`path/to/wordpress` or run `wp core download`.
 wordpress  | + wp user create justauser pleasedonotemailme2@hopefullydoesnotexist.example.com --allow-root --user_pass=userpw
 wordpress  | Error: This does not seem to be a WordPress installation.
 wordpress  | Pass --path=`path/to/wordpress` or run `wp core download`.
+
+----------------------------------------------------------------------------------------------------
+comment posting doesn't work , /wp-comments-post has a gateway timeout
+https://www.elegantthemes.com/blog/wordpress/fix-the-504-gateway-timeout-error
+the comment is there, though
+This is probably not it:
+https://wordpress.org/support/topic/504-gateway-timeout-25/
+i now see multiple comments in the database. I only see my comment I posted as a logged in user, and it's waiting for review
+it should be only visisble to me, so it makes sense that the other posts are also not visible
+when I log in as boss, I see all the posts awaiting moderation
+aha, I have 4 critial issues!
+required module gd
+when I post as boss, I see the post immediately.
+(if I ever get a popup it probably goes wrong because I have no window manager)
+so the redirection is to wp-comments-post.php
+don't forget to save in local vim
+it hangs on 
+$comment = wp_handle_comment_submission( wp_unslash( $_POST ) );
+that's in wp-includes/comment.php
+after line 3553
+before the end at 3602
+at wp_new_comment
+it's in do_action at comment.php, line 2306
+2307:   do_action( 'comment_post', $comment_ID, $commentdata['comment_approved'], $commentdata );
+but that doesn't do anything? If I skip it it just posts
+https://developer.wordpress.org/reference/functions/do_action/
+that's for hooks
+https://wordpress.org/support/topic/comment-gets-stuck-at-https-randomwpsite-com-wp-comments-post-php/
+maybe it's trying to email me?
+yes, it's the emails
+default-filters.php
+495:add_action( 'comment_post', 'wp_new_comment_notify_moderator' );
+496:add_action( 'comment_post', 'wp_new_comment_notify_postauthor' );
+you need a plugin?
+https://www.competethemes.com/blog/disable-wordpress-emails/
+not installing sendmail fixes it
+----------------------------------------------------------------------------------------------------
+
 

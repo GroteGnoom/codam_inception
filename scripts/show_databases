@@ -1,3 +1,9 @@
 #!/usr/bin/fish
 docker exec (./get_container_id mariadb) bash -c 'mysql -e "SHOW DATABASES;"'
+echo
+docker exec (./get_container_id mariadb) bash -c 'mysql -e "USE WP;SHOW TABLES;"'
+echo
+docker exec (./get_container_id mariadb) bash -c 'mysql -e "USE WP;SELECT * from wp_users;"'
+echo
+docker exec (./get_container_id mariadb) bash -c 'mysql -e "USE WP;SELECT * from wp_comments;"'
 

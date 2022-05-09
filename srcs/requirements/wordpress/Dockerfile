@@ -5,9 +5,10 @@ FROM debian:buster
 #vim to edit wp config
 #everybody thinks you should not use apt to install wordpress
 #mariadb to check if it can connect
-RUN apt-get update && apt-get -y install php-fpm php-mysql curl lsof libfcgi0ldbl vim wget mariadb-client 
+#wordpress says php-gd is a required module
+RUN apt-get update && apt-get -y install php-fpm php-mysql php-gd curl lsof libfcgi0ldbl vim wget mariadb-client 
 #it actually complained about sendmail, I don't know why it cares about emails so much. Maybe it was just a warning
-RUN apt-get -y install sendmail
+#RUN apt-get -y install sendmail
 # to prevent ERROR: unable to bind listening socket for address '/run/php/php7.3-fpm.sock': No such file or directory (2)
 #config is necessary to let it listen to the right port
 COPY conf/www.conf /etc/php/7.3/fpm/pool.d
