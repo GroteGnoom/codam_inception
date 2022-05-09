@@ -19,8 +19,7 @@ rmv:
 purge:
 	docker system prune -a 
 
-renovolume: kill rmv all
-recomplete: kill purge rmv all
 
 re: kill all
-
+renovolume: kill rmv all
+recomplete: kill purge rmv all
