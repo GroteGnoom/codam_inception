@@ -5,8 +5,11 @@ startup:
 
 todo:
 	all TODOs
-	directory structure
 	remove errors when running second time. Check if users already exist, etc.
+	srcs-mariadb-1    | + service mysql stop
+	srcs-mariadb-1    | Stopping MariaDB database server: mysqldERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+	more env!
+	why does it hang after stopping?
 
 lessons:
 	don't think all your state is in your scripts if you're using volumes. Maybe don't use volumes at all until the end.
