@@ -13,7 +13,7 @@ CREATE DATABASE IF NOT EXISTS WP;
 CREATE USER IF NOT EXISTS 'justauser'@'%' IDENTIFIED BY '$WP_USER_PASSWORD';
 CREATE USER IF NOT EXISTS 'boss'@'%' IDENTIFIED BY '$WP_BOSS_PASSWORD';
 --https://stackoverflow.com/questions/1559955/host-xxx-xx-xxx-xxx-is-not-allowed-to-connect-to-this-mysql-server
-GRANT ALL PRIVILEGES ON *.* TO 'justauser'@'%' WITH GRANT OPTION; --probably don't want to give this one all privileges
+--GRANT ALL PRIVILEGES ON *.* TO 'justauser'@'%' WITH GRANT OPTION; --probably don't want to give this one all privileges
 GRANT ALL PRIVILEGES ON *.* TO 'boss'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 END
