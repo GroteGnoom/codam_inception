@@ -17,7 +17,7 @@ rmv:
 	rm -rf ~/data/wp
 
 purge:
-	docker system prune -a 
+	yes | docker system prune -a 
 
 
 re: kill all
