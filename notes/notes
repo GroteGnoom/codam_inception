@@ -15,6 +15,8 @@ todo:
 
 to understand:
 	fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	https://serverfault.com/questions/465607/nginx-document-rootfastcgi-script-name-vs-request-filename
+	it just finds the correct file? Like just pass it on to te right folder?
 
 
 lessons:
