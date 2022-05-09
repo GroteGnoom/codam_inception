@@ -11,6 +11,10 @@ todo:
 	more env!
 	why does it hang after stopping?
 
+to understand:
+	fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+
 lessons:
 	don't think all your state is in your scripts if you're using volumes. Maybe don't use volumes at all until the end.
 	don't test networks if your containers aren't all running via docker-compose

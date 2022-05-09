@@ -16,7 +16,11 @@ rmv:
 	rm -rf ~/data/db
 	rm -rf ~/data/wp
 
+purge:
+	docker system prune -a 
+
 renovolume: kill rmv all
+recomplete: kill purge rmv all
 
 re: kill all
 
