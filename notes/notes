@@ -1,6 +1,10 @@
 startup:
 	start_everything
 	use startx in VM to start firefox
+	or you can now use 
+	startx /usr/bin/i3
+	option-enter
+	firefox
 
 
 todo:
@@ -323,4 +327,5 @@ https://www.competethemes.com/blog/disable-wordpress-emails/
 not installing sendmail fixes it
 ----------------------------------------------------------------------------------------------------
 
+https://unix.stackexchange.com/questions/12755/how-to-forward-x-over-ssh-to-run-graphics-applications-remotely
 
