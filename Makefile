@@ -13,8 +13,7 @@ kill:
 	docker-compose -f srcs/docker-compose.yml kill
 
 rmv:
-	rm -rf ~/data/db
-	rm -rf ~/data/wp
+	docker volume rm $(docker volume ls -q) || true
 
 purge:
 	yes | docker system prune -a 
