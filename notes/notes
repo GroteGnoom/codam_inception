@@ -343,3 +343,6 @@ browser.fixup.fallback-to-https
 maybe I can use these for container names? like COMPOSE_PROJECT_NAME. It still seems like it can't handle it btw
 https://docs.docker.com/compose/reference/envvars/
 maybe add version '3'?
+no, just use image:
+
+if you don't kill but cancel, then docker-compose doesn't hang after stopping

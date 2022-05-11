@@ -5,6 +5,7 @@ volumes:
       #type is required by dokcer-compose
       type: none
       # o: bind is to prevent Error response from daemon: failed to mount local volume: mount /home/dnoom/data/db:/var/lib/docker/volumes/db/_data: no such device
+      # https://unix.stackexchange.com/questions/198590/what-is-a-bind-mount
       o: bind
       device: /home/dnoom/data/wp
   db:
