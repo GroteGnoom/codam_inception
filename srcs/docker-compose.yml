@@ -1,23 +1,21 @@
 volumes:
   wp:
-    driver: local
     name: wp
     driver_opts:
       #type is required by dokcer-compose
       type: none
+      # o: bind is to prevent Error response from daemon: failed to mount local volume: mount /home/dnoom/data/db:/var/lib/docker/volumes/db/_data: no such device
       o: bind
-      device: /home/inception/data/wp
+      device: /home/dnoom/data/wp
   db:
-    driver: local
     name: db
     driver_opts:
       type: none
       o: bind
-      device: /home/inception/data/db
+      device: /home/dnoom/data/db
 
 services:
   nginx:
-    #these container_name are required, else the names will be srcs_nginx, etc. 
     container_name: nginx
     build: requirements/nginx/
     restart: always

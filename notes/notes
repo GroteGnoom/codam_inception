@@ -329,3 +329,13 @@ not installing sendmail fixes it
 
 https://unix.stackexchange.com/questions/12755/how-to-forward-x-over-ssh-to-run-graphics-applications-remotely
 
+----------------------
+firefox hides its bars because it's full screen. When I press F11 I get my bars back, but it's also half screen
+
+"browser.fullscreen.autohide"
+
+and because of 
+https://stackoverflow.com/questions/30532471/firefox-redirects-to-https
+I changed
+network.stricttransportsecurity.preloadlist
+browser.fixup.fallback-to-https
