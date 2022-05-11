@@ -339,3 +339,7 @@ https://stackoverflow.com/questions/30532471/firefox-redirects-to-https
 I changed
 network.stricttransportsecurity.preloadlist
 browser.fixup.fallback-to-https
+
+maybe I can use these for container names? like COMPOSE_PROJECT_NAME. It still seems like it can't handle it btw
+https://docs.docker.com/compose/reference/envvars/
+maybe add version '3'?
