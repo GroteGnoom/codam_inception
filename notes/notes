@@ -346,3 +346,7 @@ maybe add version '3'?
 no, just use image:
 
 if you don't kill but cancel, then docker-compose doesn't hang after stopping
+
+this check
+if [ ! -d "/var/lib/mysql/mysql" ]; then
+is not correct for my situation, because it will skip the next step even after make recomplete

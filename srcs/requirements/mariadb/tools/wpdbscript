@@ -1,11 +1,13 @@
 #!/bin/sh
 set -x
 
+mkdir -p /run/mysqld
+chown -R mysql:mysql /run/mysqld
+chown -R mysql:mysql /var/lib/mysql
+
 mysql_install_db
 
 service mysql stop
-mkdir -p /run/mysqld
-chown -R mysql:mysql /run/mysqld
 
 cat << END > /tmp/wpdbscript.sql
 --this site: https://www.linode.com/docs/guides/how-to-install-wordpress-using-wp-cli-on-debian-10/ also covers this part
@@ -23,4 +25,5 @@ service mysql start && mysql < /tmp/wpdbscript.sql
 #This will give an error, but it still fixes a problem :S Without it, I can't start the mysqld afterwards
 mysqladmin -u$WP_BOSS_LOGIN -p$WP_BOSS_PASSWORD shutdown
 rm -f /tmp/wpdbscript.sql
+
 mysqld
