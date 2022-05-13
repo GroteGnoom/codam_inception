@@ -8,19 +8,7 @@ startup:
 
 
 todo:
-	all TODOs
-	remove errors when running second time. Check if users already exist, etc.
-	srcs-mariadb-1    | + service mysql stop
-	srcs-mariadb-1    | Stopping MariaDB database server: mysqldERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
-	more env!
-	why does it hang after stopping?
-	people have seen similar problems, especially on arch, but they should be fixed, I have a newer version
-	https://github.com/docker/compose/issues/8523
 
-to understand:
-	fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-	https://serverfault.com/questions/465607/nginx-document-rootfastcgi-script-name-vs-request-filename
-	it just finds the correct file? Like just pass it on to te right folder?
 
 
 lessons:
@@ -350,3 +338,9 @@ if you don't kill but cancel, then docker-compose doesn't hang after stopping
 this check
 if [ ! -d "/var/lib/mysql/mysql" ]; then
 is not correct for my situation, because it will skip the next step even after make recomplete
+
+	why does it hang after killing?
+	people have seen similar problems, especially on arch, but they should be fixed, I have a newer version
+	https://github.com/docker/compose/issues/8523
+
+	fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
